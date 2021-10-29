@@ -1,0 +1,148 @@
+*,
+*::after,
+*::before {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+a {
+    text-decoration: none;
+}
+img {
+    vertical-align: top;
+}
+ul,
+ol,
+li {
+    list-style: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: inherit;
+    font-size: inherit;
+}
+html,
+body {
+    height: 100%;
+    font-size: 14px;
+    line-height: 1;
+    font-weight: 400;
+    font-family: sans-serif;
+    background-color: #F1F1F2;
+    color: #000;
+}
+.wrapper {
+    min-height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+/* HEADER------------------------------------------------------------------------------------------------------------------------*/
+
+.header {
+    display: block;
+    width: 100%;
+}
+.header__container {
+    position: relative;
+}
+.header__menu {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.menu {
+    padding: 10px 0 0 0;
+}
+.menu__list {
+    display: flex;
+}
+.menu__item {
+}
+.menu__item:not(:first-child) {
+    margin: 0 0 0 8px;
+}
+.menu__link {
+    color: #0645ad;
+}
+.menu__link:hover {
+    text-decoration: underline;
+}
+
+/* MAIN-TOP ------------------------------------------------------------------------------------------------------------------------*/
+
+.main-top {
+    margin: 75px 0 0 0;
+}
+.main-top__content {
+    display: flex;
+    justify-content: space-between;
+}
+.main-top__left {
+}
+.main-top__title {
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 150%;
+}
+.main-top__right {
+    font-size: 15px;
+    line-height: 125%;
+}
+.main-top__create {
+    display: flex;
+    width: 140px;
+    min-height: 32px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    color: #3F4244;
+    border: 1px solid grey;
+    color: inherit;
+}
+.main-top__create:hover {
+    opacity: 0.7;
+}
+
+/*MAIN-BLOCK ------------------------------------------------------------------------------------------------------------------------*/
+
+.page__main-block {
+    margin: 40px 0 0 0;
+}
+.main-block {
+
+}
+.main-block__container {
+
+}
+.main-block__content {
+
+}
+.main-block__item {
+    width: 100%;
+    padding: 5px 10px;
+    border: 1px solid #BCBABE;
+    border-radius: 7px;
+}
+.main-block__item:hover {
+    opacity: 0.7;
+}
+.main-block__item:not(:first-child) {
+    margin: 10px 0 0 0;
+}
+.main-block__link {
+    display: block;
+    width: 100%;
+    font-size: 20px;
+    line-height: 130%;
+    color: inherit;
+}
