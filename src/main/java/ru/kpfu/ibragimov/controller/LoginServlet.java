@@ -27,7 +27,6 @@ public class LoginServlet extends HttpServlet {
       }
     }
 
-    req.setAttribute("username", req.getAttribute("username"));
     req.getRequestDispatcher("/WEB-INF/views/login.html").forward(req, resp);
   }
 }
