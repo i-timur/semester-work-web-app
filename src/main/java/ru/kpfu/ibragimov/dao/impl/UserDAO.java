@@ -1,13 +1,11 @@
 package ru.kpfu.ibragimov.dao.impl;
 
 import ru.kpfu.ibragimov.dao.DAO;
+import ru.kpfu.ibragimov.helper.PasswordHelper;
 import ru.kpfu.ibragimov.helper.PostgresConnectionHelper;
 import ru.kpfu.ibragimov.model.User;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,5 +40,21 @@ public class UserDAO implements DAO <User> {
       return new ArrayList<>();
     }
 
+  }
+
+  @Override
+  public boolean save(User user) {
+    String query = "INSERT INTO \"user\" (user_login, user_password) VALUES (?, ?);";
+
+    try {
+      PreparedStatement preparedStatement = connection.prepareStatement(query);
+      preparedStatement.setString(1, user.getLogin());
+      preparedStatement.setString(2, PasswordHelper.encrypt(user.getPassword()));
+      preparedStatement.executeUpdate();
+      return true;
+    } catch (SQLException throwables) {
+      throwables.printStackTrace();
+      return false;
+    }
   }
 }
