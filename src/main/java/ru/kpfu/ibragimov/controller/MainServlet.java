@@ -1,5 +1,7 @@
 package ru.kpfu.ibragimov.controller;
 
+import ru.kpfu.ibragimov.service.SecurityService;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,6 +13,7 @@ import java.io.IOException;
 public class MainServlet extends HttpServlet {
   @Override
   protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-    req.getRequestDispatcher("/WEB-INF/views/index.html").forward(req, resp);
+    req.setAttribute("username", req.getSession().getAttribute("username"));
+    req.getRequestDispatcher("/WEB-INF/views/index.ftl").forward(req, resp);
   }
 }

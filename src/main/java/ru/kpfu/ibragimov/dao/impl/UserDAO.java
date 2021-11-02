@@ -13,8 +13,24 @@ public class UserDAO implements DAO <User> {
 
   private static final Connection connection = PostgresConnectionHelper.getConnection();
 
-  public User get() {
-    return null;
+  public User get(String login) {
+    try {
+      Statement statement = connection.createStatement();
+      String query = String.format("SELECT * FROM \"user\" WHERE user_login = \'%s\';", login);
+      ResultSet resultSet = statement.executeQuery(query);
+      resultSet.next();
+
+      return new User(
+        resultSet.getString("user_login"),
+        resultSet.getString("user_password"),
+        resultSet.getString("first_name"),
+        resultSet.getString("last_name"),
+        resultSet.getString("user_token")
+      );
+    } catch (SQLException throwables) {
+      throwables.printStackTrace();
+      return null;
+    }
   }
 
   public List<User> getAll() {
@@ -44,12 +60,30 @@ public class UserDAO implements DAO <User> {
 
   @Override
   public boolean save(User user) {
-    String query = "INSERT INTO \"user\" (user_login, user_password) VALUES (?, ?);";
+    String query = "INSERT INTO \"user\" (user_login, user_password, first_name, last_name, user_token) VALUES (?, ?, ?, ?, ?);";
 
     try {
       PreparedStatement preparedStatement = connection.prepareStatement(query);
       preparedStatement.setString(1, user.getLogin());
       preparedStatement.setString(2, PasswordHelper.encrypt(user.getPassword()));
+      preparedStatement.setString(3, user.getFirstName());
+      preparedStatement.setString(4, user.getLastName());
+      preparedStatement.setString(5, user.getUserToken());
+
+      preparedStatement.executeUpdate();
+      return true;
+    } catch (SQLException throwables) {
+      throwables.printStackTrace();
+      return false;
+    }
+  }
+
+  @Override
+  public boolean change(User user) {
+    String query = String.format("UPDATE \"user\" SET user_token = \'%s\' WHERE user_login = \'%s\';", user.getUserToken(), user.getLogin());
+
+    try {
+      PreparedStatement preparedStatement = connection.prepareStatement(query);
       preparedStatement.executeUpdate();
       return true;
     } catch (SQLException throwables) {

@@ -10,24 +10,7 @@
 </head>
 <body>
     <div class="wrapper">
-        <header class="header">
-            <div class="header__container container">
-                <nav class="header__menu menu">
-                    <ul class="menu__list">
-                        <li class="menu__item">
-                            <a href="/register" class="menu__link">
-                                Создать учётную запись
-                            </a>
-                        </li>
-                        <li class="menu__item">
-                            <a href="/login" class="menu__link">
-                                Войти
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-        </header>
+        <#include "_header.ftl">
         <main class="page">
             <section class="page__main-top main-top">
                 <div class="main-top__container container">
