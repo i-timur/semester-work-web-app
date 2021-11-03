@@ -23,7 +23,7 @@ public class LoginServlet extends HttpServlet {
 
     if (login != null && password != null) {
       if (SecurityService.login(req, resp, login, password, rememberMe)) {
-        resp.sendRedirect(getServletContext().getContextPath() + "/");
+        resp.sendRedirect("/");
         return;
       }
     }

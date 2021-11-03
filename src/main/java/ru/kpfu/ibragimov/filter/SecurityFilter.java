@@ -33,19 +33,21 @@ public class SecurityFilter extends HttpFilter {
     String username = null;
     String token = null;
     Cookie[] cookies = req.getCookies();
-    for (Cookie c : cookies) {
-       if ("username".equals(c.getName())) {
-         username = c.getValue();
-       }
-       if ("token".equals(c.getName())) {
-         token = c.getValue();
-       }
-    }
+    if (cookies != null) {
+      for (Cookie c : cookies) {
+        if ("username".equals(c.getName())) {
+          username = c.getValue();
+        }
+        if ("token".equals(c.getName())) {
+          token = c.getValue();
+        }
+      }
+  }
 
     if (username != null && token != null) {
       User user = DAO.get(username);
       if (user.getUserToken() == token) {
-        SecurityService.login(req, res, username, user.getPassword(), "refresh");
+        SecurityService.login(req, res, username, user.getPassword(), "on");
       }
     }
 
