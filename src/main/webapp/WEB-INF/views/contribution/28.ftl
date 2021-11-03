@@ -1,0 +1,1 @@
+<#include "contribution-base.ftl"><#macro title>Еще одно название статьи</#macro><#macro text>My text</#macro><#macro category>Category: none</#macro>
