@@ -34,6 +34,10 @@ h6 {
     font-weight: inherit;
     font-size: inherit;
 }
+.container {
+    margin: 0 auto;
+    max-width: 1280px;
+}
 .wrapepr {
     min-height: 100%;
     overflow: hidden;
@@ -41,7 +45,41 @@ h6 {
     flex-direction: column;
 }
 
+
+.header {
+    display: block;
+    width: 100%;
+}
+.header__container {
+    position: relative;
+}
+.header__menu {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.menu {
+    padding: 10px 0 0 0;
+}
+.menu__list {
+    display: flex;
+}
+.menu__item {
+}
+.menu__item:not(:first-child) {
+    margin: 0 0 0 8px;
+}
+.menu__link {
+    color: #0645ad;
+}
+.menu__link:hover {
+    text-decoration: underline;
+}
+
+
 .main {
+    margin-top: 20px;
+    padding: 0 50px;
     flex: 1 1 auto;
 }
 .main__title {
@@ -59,6 +97,7 @@ h6 {
 
 .footer {
     margin-top: 10px;
+    padding: 50px;
     font-size: 20px;
     font-weight: 400;
 }

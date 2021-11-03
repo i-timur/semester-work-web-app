@@ -111,5 +111,5 @@ h6 {
     cursor: pointer;
 }
 .login__submit:hover {
-    opacity: 0.7;
+    background-color: beige;
 }

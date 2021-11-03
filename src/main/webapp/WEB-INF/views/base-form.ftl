@@ -5,14 +5,14 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="../../styles/<@style></@style>">
+    <link rel="stylesheet" href="../../style/<@style></@style>">
     <title><@title></@title></title>
 </head>
 <body>
 <div class="wrapper">
 
     <#include "_header.ftl">
-    <form action="/login" class="form" method="post">
+    <form action="<@action></@action>" class="form" method="post">
         <div class="login">
             <label for="login" class="login__label">Логин</label>
             <input name="login" type="text" class="login__input input" id="login">

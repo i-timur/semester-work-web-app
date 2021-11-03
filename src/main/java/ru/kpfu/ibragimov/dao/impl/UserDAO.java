@@ -33,6 +33,18 @@ public class UserDAO implements DAO <User> {
     }
   }
 
+  @Override
+  public void set(String login, String firstName, String lastName) {
+    String query = String.format("UPDATE \"user\" SET first_name = \'%s\', last_name = \'%s\' WHERE user_login = \'%s\';", firstName, lastName, login);
+
+    try {
+      PreparedStatement preparedStatement = connection.prepareStatement(query);
+      preparedStatement.executeUpdate();
+    } catch (SQLException throwables) {
+      throwables.printStackTrace();
+    }
+  }
+
   public List<User> getAll() {
     try {
       Statement statement = connection.createStatement();
