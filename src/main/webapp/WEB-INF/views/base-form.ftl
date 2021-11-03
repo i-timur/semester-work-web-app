@@ -12,7 +12,7 @@
 <div class="wrapper">
 
     <#include "_header.ftl">
-    <form action="/login" class="form" method="post">
+    <form action="<@action></@action>" class="form" method="post">
         <div class="login">
             <label for="login" class="login__label">Логин</label>
             <input name="login" type="text" class="login__input input" id="login">

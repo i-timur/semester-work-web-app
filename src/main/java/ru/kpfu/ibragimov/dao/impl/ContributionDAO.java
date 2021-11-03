@@ -32,6 +32,11 @@ public class ContributionDAO implements DAO <Contribution> {
   }
 
   @Override
+  public void set(String login, String firstName, String lastName) {
+
+  }
+
+  @Override
   public List<Contribution> getAll() {
     try {
       Statement statement = connection.createStatement();

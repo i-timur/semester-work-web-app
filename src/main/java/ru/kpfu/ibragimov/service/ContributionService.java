@@ -27,10 +27,10 @@ public class ContributionService {
       .collect(Collectors.toList());
   }
 
-  public List<ContributionTitleDTO> filterTitles(String category, String search) {
+  public List<ContributionDTO> filter(String category, String search) {
     List<Contribution> contributions = DAO.getCertain(category, search);
     return contributions.stream()
-      .map((u) -> new ContributionTitleDTO(u.getTitle()))
+      .map((u) -> new ContributionDTO(u.getId(), u.getText()))
       .collect(Collectors.toList());
   }
 
