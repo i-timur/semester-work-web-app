@@ -1,0 +1,135 @@
+*,
+*::after,
+*::before {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+html,
+body {
+    height: 100%;
+    font-size: 14px;
+    line-height: 1;
+    font-weight: 500;
+    font-family: sans-serif;
+}
+a {
+    text-decoration: none;
+}
+img {
+    vertical-align: top;
+}
+ul,
+ol,
+li {
+    list-style: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: inherit;
+    font-size: inherit;
+}
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+/* HEADER------------------------------------------------------------------------------------------------------------------------*/
+
+.header {
+    display: block;
+    width: 100%;
+}
+.header__container {
+    position: relative;
+}
+.header__menu {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.menu {
+    padding: 10px 0 0 0;
+}
+.menu__list {
+    display: flex;
+}
+.menu__item {
+}
+.menu__item:not(:first-child) {
+    margin: 0 0 0 8px;
+}
+.menu__link {
+    color: #0645ad;
+}
+.menu__link:hover {
+    text-decoration: underline;
+}
+/* FORM -----------------------------------------------------------------------------------------------------*/
+.wrapper {
+    overflow: hidden;
+    min-height: 100%;
+}
+
+.form {
+    display: block;
+    width: 100%;
+}
+.create {
+    display: flex;
+    margin-top: 50px;
+    flex-direction: column;
+    align-items: center;
+}
+.title {
+    margin-bottom: 10px;
+}
+
+input:not(:last-child) {
+    margin-bottom: 25px;
+}
+textarea {
+    margin-bottom: 20px;
+    height: 250px;
+
+}
+.create__input, .create__textarea {
+    display: block;
+    width: 350px;
+    padding: 10px 15px;
+    /*border-radius: 7px;*/
+    background-color: #F1F1F2;
+    font-size: 16px;
+    line-height: 120%;
+}
+.form__select {
+    width: 180px;
+    min-height: 30px;
+    margin-bottom: 25px;
+    padding: 0 10px;
+    border-radius: 7px;
+    outline: none;
+    cursor: pointer;
+    background-color: #F1F1F2;
+    font-size: 15px;
+    line-height: 125%;
+}
+.form__select:hover {
+    background-color: beige;
+}
+.create__submit {
+    display: flex;
+    width: 100px;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 5px;
+    align-items: center;
+    min-height: 30px;
+}
+.create__submit:hover {
+    background-color: beige;
+}

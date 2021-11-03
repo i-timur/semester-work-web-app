@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="../../style/index.css">
+    <link rel="stylesheet" href="../../styles/index.css">
     <title>Энциклопедия</title>
 </head>
 <body>
@@ -22,20 +22,34 @@
                             <a href="/create" class="main-top__create">Создать статью</a>
                         </div>
                     </div>
+                    <div class="main-top__find">
+                        <form action="/filter" class="form" id="find" method="post">
+                            <div class="form__container">
+                                <select form="find" name="select" id="select" class="form__select">
+                                    <option form="find" name="option" value="all" class="form__option">По всем категориям</option>
+                                    <option form="find" name="option" value="War" class="form__option">Война</option>
+                                    <option form="find" name="option" value="21 century" class="form__option">21 век</option>
+                                    <option form="find" name="option" value="ancient history" class="form__option">Древняя история</option>
+                                </select>
+                                <input name="search" form="find" type="text" class="form__input" placeholder="Поиск">
+                                <button form="find" class="form__button" id="form__button">Поиск</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </section>
             <section class="page__main-block main-block">
                 <div class="main-block__container container">
                     <div class="main-block__content">
-                        <div class="main-block__item">
-                            <a href="#" class="main-block__link">Вторая мировая война</a>
-                        </div>
-                        <div class="main-block__item">
-                            <a href="#" class="main-block__link">Петр Великий</a>
-                        </div>
-                        <div class="main-block__item">
-                            <a href="#" class="main-block__link">Ледоивое побоище</a>
-                        </div>
+                        <#if contributions??>
+                            <#if contributions?has_content>
+                                <#list contributions as c>
+                                    <div class="main-block__item">
+                                        <a href="/contribution/${c.id}" class="main-block__link">${c.title}</a>
+                                    </div>
+                                </#list>
+                            </#if>
+                        </#if>
                     </div>
                 </div>
             </section>

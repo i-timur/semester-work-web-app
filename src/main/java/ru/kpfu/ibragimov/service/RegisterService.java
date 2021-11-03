@@ -1,5 +1,6 @@
 package ru.kpfu.ibragimov.service;
 
+import ru.kpfu.ibragimov.dao.DAO;
 import ru.kpfu.ibragimov.dao.impl.UserDAO;
 import ru.kpfu.ibragimov.model.User;
 

@@ -59,6 +59,11 @@ public class UserDAO implements DAO <User> {
   }
 
   @Override
+  public List<User> getCertain(String category, String search) {
+    return null;
+  }
+
+  @Override
   public boolean save(User user) {
     String query = "INSERT INTO \"user\" (user_login, user_password, first_name, last_name, user_token) VALUES (?, ?, ?, ?, ?);";
 
@@ -90,5 +95,10 @@ public class UserDAO implements DAO <User> {
       throwables.printStackTrace();
       return false;
     }
+  }
+
+  @Override
+  public User saveThenRetrieve(User user) {
+    return null;
   }
 }

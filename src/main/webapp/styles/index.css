@@ -110,9 +110,55 @@ body {
     color: inherit;
 }
 .main-top__create:hover {
-    opacity: 0.7;
+    background-color: beige;
 }
-
+.main-top__find {
+    margin-top: 25px;
+}
+.form {
+}
+.form__container {
+    display: flex;
+}
+.form__container > *:not(:last-child) {
+    margin-right: 20px;
+}
+.form__select {
+    padding: 0 10px;
+    border-radius: 7px;
+    outline: none;
+    cursor: pointer;
+    font-size: 15px;
+    line-height: 125%;
+}
+.form__select:hover {
+    background-color: beige;
+}
+.form__option {
+}
+.form__input {
+    flex: 1 1 auto;
+    outline: none;
+    padding: 10px 20px;
+    font-size: 15px;
+    line-height: 125%;
+}
+.form__button {
+    display: flex;
+    width: 140px;
+    min-height: 32px;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    line-height: 125%;
+    cursor: pointer;
+    background-color: #fff;
+    border: 1px solid grey;
+    color: inherit;
+}
+.form__button:hover {
+    background-color: beige;
+}
 /*MAIN-BLOCK ------------------------------------------------------------------------------------------------------------------------*/
 
 .page__main-block {
@@ -135,7 +181,7 @@ body {
     background-color: #fff;
 }
 .main-block__item:hover {
-    opacity: 0.7;
+    background-color: beige;
 }
 .main-block__item:not(:first-child) {
     margin: 10px 0 0 0;
