@@ -1,5 +1,6 @@
 package ru.kpfu.ibragimov.controller;
 
+import ru.kpfu.ibragimov.dto.ContributionTitleTextDTO;
 import ru.kpfu.ibragimov.model.ContributionCategory;
 import ru.kpfu.ibragimov.service.CategoryService;
 import ru.kpfu.ibragimov.service.ContributionCategoryService;
@@ -32,7 +33,8 @@ public class CreateServlet extends HttpServlet {
     String text = req.getParameter("text");
     String select = req.getParameter("select");
 
-    int contributionID = contributionService.saveAndGetID(title, text);
+    int contributionID = contributionService.saveAndGetID(new ContributionTitleTextDTO(title, text));
+
     if (contributionCategoryService.save(contributionID, categoryService.getID(select))) {
       fileService.createFile(Integer.toString(contributionID) + ".ftl", title, text, select);
       req.setAttribute("username", req.getSession().getAttribute("username"));

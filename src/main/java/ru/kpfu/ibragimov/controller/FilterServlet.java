@@ -18,10 +18,11 @@ public class FilterServlet extends HttpServlet {
 
   @Override
   protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-    String option = req.getParameter("select");
+    String category = req.getParameter("select");
     String search = req.getParameter("search");
 
-    List<ContributionDTO> contributions = contributionService.filter(option, search);
+    List<ContributionDTO> contributions = contributionService.filter(category, search);
+
     req.setAttribute("contributions", contributions);
     req.setAttribute("username", req.getSession().getAttribute("username"));
     req.getRequestDispatcher("/WEB-INF/views/index.ftl").forward(req, resp);

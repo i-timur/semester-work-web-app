@@ -1,6 +1,6 @@
 package ru.kpfu.ibragimov.dao.impl;
 
-import ru.kpfu.ibragimov.dao.DAO;
+import ru.kpfu.ibragimov.dao.IUserDAO;
 import ru.kpfu.ibragimov.helper.PasswordHelper;
 import ru.kpfu.ibragimov.helper.PostgresConnectionHelper;
 import ru.kpfu.ibragimov.model.User;
@@ -9,7 +9,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserDAO implements DAO <User> {
+public class UserDAO implements IUserDAO {
 
   private static final Connection connection = PostgresConnectionHelper.getConnection();
 
@@ -34,11 +34,18 @@ public class UserDAO implements DAO <User> {
   }
 
   @Override
-  public void set(String login, String firstName, String lastName) {
-    String query = String.format("UPDATE \"user\" SET first_name = \'%s\', last_name = \'%s\' WHERE user_login = \'%s\';", firstName, lastName, login);
+  public void set(User user) {
+    String query = "UPDATE \"user\" SET user_login = ?, user_password = ?, first_name = ?, last_name = ?, user_token = ? WHERE user_login = ?;";
 
     try {
       PreparedStatement preparedStatement = connection.prepareStatement(query);
+      preparedStatement.setString(1, user.getLogin());
+      preparedStatement.setString(2, user.getPassword());
+      preparedStatement.setString(3, user.getFirstName());
+      preparedStatement.setString(4, user.getLastName());
+      preparedStatement.setString(5, user.getUserToken());
+      preparedStatement.setString(6, user.getLogin());
+
       preparedStatement.executeUpdate();
     } catch (SQLException throwables) {
       throwables.printStackTrace();
@@ -71,11 +78,6 @@ public class UserDAO implements DAO <User> {
   }
 
   @Override
-  public List<User> getCertain(String category, String search) {
-    return null;
-  }
-
-  @Override
   public boolean save(User user) {
     String query = "INSERT INTO \"user\" (user_login, user_password, first_name, last_name, user_token) VALUES (?, ?, ?, ?, ?);";
 
@@ -93,24 +95,5 @@ public class UserDAO implements DAO <User> {
       throwables.printStackTrace();
       return false;
     }
-  }
-
-  @Override
-  public boolean change(User user) {
-    String query = String.format("UPDATE \"user\" SET user_token = \'%s\' WHERE user_login = \'%s\';", user.getUserToken(), user.getLogin());
-
-    try {
-      PreparedStatement preparedStatement = connection.prepareStatement(query);
-      preparedStatement.executeUpdate();
-      return true;
-    } catch (SQLException throwables) {
-      throwables.printStackTrace();
-      return false;
-    }
-  }
-
-  @Override
-  public User saveThenRetrieve(User user) {
-    return null;
   }
 }

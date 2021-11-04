@@ -1,9 +1,8 @@
 package ru.kpfu.ibragimov.filter;
 
-import ru.kpfu.ibragimov.dao.DAO;
-import ru.kpfu.ibragimov.dao.impl.UserDAO;
-import ru.kpfu.ibragimov.model.User;
+import ru.kpfu.ibragimov.dto.UserDTO;
 import ru.kpfu.ibragimov.service.SecurityService;
+import ru.kpfu.ibragimov.service.UserService;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -17,7 +16,7 @@ import java.io.IOException;
 @WebFilter("/*")
 public class SecurityFilter extends HttpFilter {
 
-  private static final DAO<User> DAO = new UserDAO();
+  private final UserService userService = new UserService();
   protected final String[] paths = {"/profile", "/create"};
 
   @Override
@@ -45,7 +44,7 @@ public class SecurityFilter extends HttpFilter {
   }
 
     if (username != null && token != null) {
-      User user = DAO.get(username);
+      UserDTO user = userService.get(new UserDTO(username));
       if (user.getUserToken() == token) {
         SecurityService.login(req, res, username, user.getPassword(), "on");
       }

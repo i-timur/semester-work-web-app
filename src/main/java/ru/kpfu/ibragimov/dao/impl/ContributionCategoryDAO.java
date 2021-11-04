@@ -8,7 +8,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class ContributionCategoryCategoryDAO implements IContributionCategoryDAO {
+public class ContributionCategoryDAO implements IContributionCategoryDAO {
 
   private static final Connection connection = PostgresConnectionHelper.getConnection();
 

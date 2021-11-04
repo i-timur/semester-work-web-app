@@ -23,7 +23,7 @@
                     <option disabled class="form__option">Категории</option>
                     <option form="form" name="option" value="none" class="form__option">Без категории</option>
                     <option form="form" name="option" value="War" class="form__option">Война</option>
-                    <option form="form" name="option" value="21 century" class="form__option">21 век</option>
+                    <option form="form" name="option" value="20 century" class="form__option">20 век</option>
                     <option form="form" name="option" value="ancient history" class="form__option">Древняя история</option>
                 </select>
                 <input type="submit" class="create__submit" value="Создать">

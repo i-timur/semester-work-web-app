@@ -28,7 +28,7 @@
                                 <select form="find" name="select" id="select" class="form__select">
                                     <option form="find" name="option" value="all" class="form__option">По всем категориям</option>
                                     <option form="find" name="option" value="War" class="form__option">Война</option>
-                                    <option form="find" name="option" value="21 century" class="form__option">21 век</option>
+                                    <option form="find" name="option" value="20 century" class="form__option">20 век</option>
                                     <option form="find" name="option" value="ancient history" class="form__option">Древняя история</option>
                                 </select>
                                 <input name="search" form="find" type="text" class="form__input" placeholder="Поиск">

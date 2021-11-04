@@ -1,9 +1,5 @@
 package ru.kpfu.ibragimov.controller;
 
-import ru.kpfu.ibragimov.dao.DAO;
-import ru.kpfu.ibragimov.dao.impl.ContributionDAO;
-import ru.kpfu.ibragimov.model.Contribution;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
