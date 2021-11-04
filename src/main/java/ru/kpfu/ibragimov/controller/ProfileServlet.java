@@ -17,7 +17,7 @@ public class ProfileServlet extends HttpServlet {
 
   @Override
   protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-    UserDTO user = userService.getUser((String) req.getSession().getAttribute("username"));
+    UserDTO user = userService.get(new UserDTO((String) req.getSession().getAttribute("username")));
     req.setAttribute("username", user.getLogin());
     req.setAttribute("firstName", user.getFirstName());
     req.setAttribute("lastName", user.getLastName());
@@ -30,7 +30,7 @@ public class ProfileServlet extends HttpServlet {
     String firstName = req.getParameter("firstName");
     String lastName = req.getParameter("lastName");
 
-    userService.setByLogin(login, firstName, lastName);
+    userService.set(new UserDTO(login, firstName, lastName));
     resp.sendRedirect("/profile");
   }
 }

@@ -1,0 +1,1 @@
+<#include "contribution-base.ftl"><#macro title>Статья</#macro><#macro text>Описание</#macro><#macro category>Category: ancient history</#macro>

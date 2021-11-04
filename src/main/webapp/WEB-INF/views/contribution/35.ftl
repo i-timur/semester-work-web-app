@@ -1,0 +1,1 @@
+<#include "contribution-base.ftl"><#macro title>Великая статья</#macro><#macro text>Описание великой статьи</#macro><#macro category>Category: 20 century</#macro>

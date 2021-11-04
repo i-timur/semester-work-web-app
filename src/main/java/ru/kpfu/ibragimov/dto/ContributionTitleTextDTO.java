@@ -1,22 +1,12 @@
 package ru.kpfu.ibragimov.dto;
 
-public class ContributionDTO {
-  private int id;
+public class ContributionTitleTextDTO {
   private String title;
   private String text;
 
-  public ContributionDTO(int id, String title, String text) {
-    this.id = id;
+  public ContributionTitleTextDTO(String title, String text) {
     this.title = title;
     this.text = text;
-  }
-
-  public int getId() {
-    return id;
-  }
-
-  public void setId(int id) {
-    this.id = id;
   }
 
   public String getTitle() {
@@ -25,5 +15,13 @@ public class ContributionDTO {
 
   public void setTitle(String title) {
     this.title = title;
+  }
+
+  public String getText() {
+    return text;
+  }
+
+  public void setText(String text) {
+    this.text = text;
   }
 }
