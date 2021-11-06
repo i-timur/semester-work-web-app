@@ -17,7 +17,9 @@ public class ContributionCategoryDAO implements IContributionCategoryDAO {
     if (contributionCategory.getCategoryID() == -1) {
       return true;
     }
+
     String query = "INSERT INTO contribution_category (contribution_id, category_id) VALUES (?, ?);";
+
     try {
       PreparedStatement preparedStatement = connection.prepareStatement(query);
       preparedStatement.setInt(1, contributionCategory.getContributionID());

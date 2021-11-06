@@ -21,7 +21,9 @@ public class CategoryDAO implements ICategoryDAO {
 
     try {
       Statement statement = connection.createStatement();
+
       String query = String.format("SELECT * FROM category WHERE category_name = \'%s\';", categoryName);
+
       ResultSet resultSet = statement.executeQuery(query);
       resultSet.next();
 

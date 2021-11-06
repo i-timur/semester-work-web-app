@@ -1,6 +1,5 @@
 package ru.kpfu.ibragimov.service;
 
-
 import ru.kpfu.ibragimov.dao.IContributionCategoryDAO;
 import ru.kpfu.ibragimov.dao.impl.ContributionCategoryDAO;
 import ru.kpfu.ibragimov.model.ContributionCategory;
