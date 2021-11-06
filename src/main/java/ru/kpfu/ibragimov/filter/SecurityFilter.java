@@ -17,7 +17,7 @@ import java.io.IOException;
 public class SecurityFilter extends HttpFilter {
 
   private final UserService userService = new UserService();
-  protected final String[] paths = {"/profile", "/create"};
+  protected final String[] paths = {"/profile", "/create", "/chat"};
 
   @Override
   protected void doFilter(HttpServletRequest req, HttpServletResponse res, FilterChain chain) throws IOException, ServletException {
