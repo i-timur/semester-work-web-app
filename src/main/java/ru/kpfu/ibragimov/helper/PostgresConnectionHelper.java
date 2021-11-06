@@ -3,6 +3,7 @@ package ru.kpfu.ibragimov.helper;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.Properties;
 
 public class PostgresConnectionHelper {
 
@@ -16,10 +17,13 @@ public class PostgresConnectionHelper {
     if (connection == null) {
       try {
         Class.forName(DRIVER);
+        Properties properties = new Properties();
+        properties.setProperty("user", USER);
+        properties.setProperty("password", PASSWORD);
+        properties.setProperty("stringtype", "unspecified");
         connection = DriverManager.getConnection(
           URL,
-          USER,
-          PASSWORD
+          properties
         );
       } catch (ClassNotFoundException e) {
         e.printStackTrace();
