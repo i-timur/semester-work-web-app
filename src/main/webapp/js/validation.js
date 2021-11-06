@@ -1,6 +1,5 @@
 let reg = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
 
-let login = document.querySelector('#login');
 let inp = document.querySelector('#password');
 let validationEl = document.querySelector('.validation-text');
 
