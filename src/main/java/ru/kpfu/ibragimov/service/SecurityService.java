@@ -29,5 +29,4 @@ public class SecurityService {
   public static void logout(HttpServletRequest req) {
     req.getSession().removeAttribute("username");
   }
-
 }

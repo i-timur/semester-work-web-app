@@ -25,4 +25,11 @@ public class MessageService {
   public void save(MessageMessageAuthorTextDTO message) {
     DAO.save(new Message(message.getMessageAuthor(), message.getText(), Utils.getTimeStamp(new Date())));
   }
+
+  public String getAsText(List<MessageDTO> messages) {
+    List<String> stringMessages = messages.stream()
+      .map((m) -> "<div class=\"chat__message message\"><div class=\"message__author\">" + m.getMessageAuthor() + "</div>" + "<div class=\"message__text\">" + m.getText() + "</div>" + "<div class=\"message__date\">" + m.getCreatedAt() + "</div></div>")
+      .collect(Collectors.toList());
+    return String.join("", stringMessages);
+  }
 }
