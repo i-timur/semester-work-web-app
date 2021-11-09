@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../../style/header.css">
     <link rel="stylesheet" href="../../style/chat.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title>Chat</title>
 </head>
 <body>
@@ -35,12 +36,13 @@
                 </div>
             </div>
         </div>
-        <form action="/chat" class="send" method="post">
+        <form>
             <div class="send__container container">
                 <input type="text" class="text" placeholder="Введите сообщение" name="message">
                 <input type="submit" class="submit" value="Отправить сообщение">
             </div>
         </form>
     </div>
+    <script src="../../js/send.js"></script>
 </body>
 </html>

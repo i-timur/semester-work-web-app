@@ -34,4 +34,11 @@ public class ContributionService {
   public int saveAndGetID(ContributionTitleTextDTO contribution) {
     return DAO.saveAndRetrieve(new Contribution(contribution.getTitle(), contribution.getText())).getId();
   }
+
+  public String getAsText(List<ContributionDTO> contributions) {
+    List<String> stringContributions = contributions.stream()
+      .map((c) -> "<div class=\"main-block__item\">" + "<a href=\"/contribution/"+ Integer.toString(c.getId()) +"\" class=\"main-block__link\">"+ c.getTitle() +"</a></div>" )
+      .collect(Collectors.toList());
+    return String.join("", stringContributions);
+  }
 }

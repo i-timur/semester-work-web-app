@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../../style/header.css">
     <link rel="stylesheet" href="../../style/index.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title>Энциклопедия</title>
 </head>
 <body>
@@ -24,7 +25,7 @@
                         </div>
                     </div>
                     <div class="main-top__find">
-                        <form action="/filter" class="form" id="find" method="post">
+                        <form>
                             <div class="form__container">
                                 <select form="find" name="select" id="select" class="form__select">
                                     <option form="find" name="option" value="all" class="form__option">По всем категориям</option>
@@ -56,5 +57,6 @@
             </section>
         </main>
     </div>
+    <script src="../../js/filter.js"></script>
 </body>
 </html>

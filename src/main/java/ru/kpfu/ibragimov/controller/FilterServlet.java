@@ -17,14 +17,13 @@ public class FilterServlet extends HttpServlet {
   ContributionService contributionService = new ContributionService();
 
   @Override
-  protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-    String category = req.getParameter("select");
+  protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    String category = req.getParameter("category");
     String search = req.getParameter("search");
 
-    List<ContributionDTO> contributions = contributionService.filter(category, search);
-
-    req.setAttribute("contributions", contributions);
-    req.setAttribute("username", req.getSession().getAttribute("username"));
-    req.getRequestDispatcher("/WEB-INF/views/index.ftl").forward(req, resp);
+    resp.setContentType("text/plain");
+    resp.setCharacterEncoding("UTF-8");
+    String html = contributionService.getAsText(contributionService.filter(category, search));
+    resp.getWriter().write(html);
   }
 }
